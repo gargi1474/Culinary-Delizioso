@@ -62,5 +62,31 @@ router.post("/getuserorders",async (req, res) => {
   }
 });
 
+router.get("/alluserorder", async (req, res) => {
+  try {
+    const orders = await Order.find({});
+    res.status(200).send(orders);
+  } catch (error) {
+    res.status(400).json({
+      message: "Something Went Wrong",
+      error: error.stack,
+    });
+  }
+});
+
+router.post("/deliverorder", async (req, res) => {
+  const orderid = req.body.orderid;
+  try {
+    const order = await Order.findOne({ _id: orderid });
+    order.isDeleivered = true;
+    await order.save();
+    res.status(200).send("Order delivered Successfully");
+  } catch (error) {
+    res.status(400).json({
+      message: "Something Went Wrong",
+      error: error.stack,
+    });
+  }
+});
 
 module.exports = router;
