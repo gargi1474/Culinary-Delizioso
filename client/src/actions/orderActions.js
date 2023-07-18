@@ -13,11 +13,7 @@ export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
       cartItems
     });
     dispatch({ type: 'Place_Order_Success', payload: response.data });
-<<<<<<< HEAD
     //console.log(response);
-=======
-    console.log(response);
->>>>>>> 6dba03dd910bc4c6f781ae4d1c87ff4fa84da250
   } catch (error) {
     dispatch({ type: 'Place_Order_Failed' });
     console.log(error);
@@ -31,11 +27,8 @@ export const getUserOrders =()=>async (dispatch,getState)=>{
 
     try{
       const response= await axios.post("/api/orders/getuserorders", {userid:currentUser._id})
-<<<<<<< HEAD
+
       //console.log(response);
-=======
-      console.log(response);
->>>>>>> 6dba03dd910bc4c6f781ae4d1c87ff4fa84da250
       dispatch({type: 'Get_User_Orders_Success', payload: response.data})
     } catch(error){
        
