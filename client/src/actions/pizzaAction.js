@@ -6,7 +6,11 @@ export const getAllPizzas =()=>async dispatch=>{
 
     try{
       const response= await axios.get("./api/pizzas/getallpizzas")
+<<<<<<< HEAD
       //console.log(response);
+=======
+      console.log(response);
+>>>>>>> 6dba03dd910bc4c6f781ae4d1c87ff4fa84da250
       dispatch({type: 'Get_Pizzas_Success', payload: response.data})
     } catch(error){
        
